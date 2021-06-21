@@ -4,4 +4,8 @@ class AppController < ApplicationController
 
   def about
   end
+
+  def admin
+    render layout: "admin-layout"
+  end
 end
