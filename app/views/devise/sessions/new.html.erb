@@ -6,7 +6,9 @@
 	<main class="form-signin">
 
 		<%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+
 			<h2 class="h3 mb-3 fw-normal">Log in</h2>
+
 			<div class="field form-floating">
 				<%= f.email_field :email, autofocus: true, autocomplete: "email", class: "form-control" %>
 				<%= f.label :email %>
@@ -25,7 +27,7 @@
 			<% end %>
 
 			<div class="actions">
-				<%= f.submit "Log in", class: "w-100 btn btn-lg btn-primary" %>
+				<%= f.submit "Sign in", class: "w-100 btn btn-lg btn-primary" %>
 			</div>
 		<% end %>
 

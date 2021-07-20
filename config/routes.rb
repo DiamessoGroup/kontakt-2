@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :usertests
   #devise_for :users
   root 'app#home'
   get 'app/about'
