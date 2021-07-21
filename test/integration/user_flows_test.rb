@@ -18,6 +18,6 @@ class UserFlowsTest < ActionDispatch::IntegrationTest
     assert_response :redirect
     get admin_url
     assert_select 'h1', text: 'Dashboard'
-    assert_select 'a', text: 'Orders'
+    assert_select 'a', text: 'My Profile'
   end
 end
