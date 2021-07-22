@@ -25,7 +25,7 @@ class AppsTest < ApplicationSystemTestCase
 
   test 'logged in user should get to dashboard page' do
     sign_in @user
-    visit admin_url
+    visit admin_profile_url
     assert_selector 'h1', text: 'Dashboard'
     assert_selector 'a', text: 'Orders'
   end

@@ -19,13 +19,13 @@ class AppControllerTest < ActionDispatch::IntegrationTest
   end
 
   test 'should redirect admin link to login when not logged in' do
-    get admin_path
+    get admin_profile_path
     assert_redirected_to user_session_path
   end
 
   test "should redirect to admin page when logged in" do
     sign_in @user
-    get admin_path
+    get admin_profile_path
     assert_response :success
   end
 end

@@ -11,7 +11,7 @@
 				<li><%= link_to 'Home', root_path, class: "nav-link px-2 text-white" %></li>
 				<li><%= link_to 'About', app_about_path, class: "nav-link px-2 text-white" %></li>
 				<% if user_signed_in? %>
-					<%= link_to 'Dashboard', admin_path, class: "nav-link px-2 text-white" %>
+					<%= link_to 'Dashboard', admin_profile_path, class: "nav-link px-2 text-white" %>
 				<% end %>
 			</ul>
 
