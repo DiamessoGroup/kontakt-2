@@ -2,21 +2,15 @@
 	<div class="position-sticky pt-3">
 		<ul class="nav flex-column">
 			<li class="nav-item">
-				<a class="nav-link active" aria-current="page" href="#">
-					<span data-feather="home"></span>
-					My Profile
-				</a>
+				<%= link_to 'My Profile', admin_profile_path, class: "nav-link" %>
 			</li>
 			<li class="nav-item">
-				<a class="nav-link" href="#">
-					<span data-feather="file"></span>
-					Contact List
-				</a>
+				<%= link_to 'Create Contact', admin_create_contact_path, class: "nav-link" %>
 			</li>
 			<li class="nav-item">
 				<a class="nav-link" href="#">
 					<span data-feather="shopping-cart"></span>
-					Create Contact
+					Contact List
 				</a>
 			</li>
 		</ul>
