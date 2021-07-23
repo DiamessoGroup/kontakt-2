@@ -13,11 +13,28 @@ class UserFlowsTest < ActionDispatch::IntegrationTest
     assert_select 'a', text: 'Login'
     get new_user_session_url
     assert_select 'h2', text: 'Log in'
+    post new_user_session_url
+    assert_response :success
+    assert_select 'h2', text: 'Log in'
     sign_in @user
     post new_user_session_url
     assert_response :redirect
     get admin_profile_url
     assert_select 'h1', text: 'Dashboard - 	My Profile'
     assert_select 'a', text: 'My Profile'
+  end
+
+  test "logged in user should get create contact page" do
+    get root_url
+    get new_user_session_url
+    post new_user_session_url
+    assert_response :success
+    assert_select 'h2', text: 'Log in'
+    sign_in @user
+    post new_user_session_url
+    assert_response :redirect
+    get admin_create_contact_path
+    assert_response :success
+    assert_select 'h1', text: 'Dashboard - 	Create Contact'
   end
 end
