@@ -1,6 +1,8 @@
+# frozen_string_literal: true
+
 Rails.application.routes.draw do
   resources :usertests
-  #devise_for :users
+  # devise_for :users
   root 'app#home'
   get 'app/about'
   get 'admin', to: 'app#admin'
@@ -10,6 +12,7 @@ Rails.application.routes.draw do
     }
   end
   get 'admin/profile', to: 'admin#profile'
-  get 'admin/create_contact', to: "admin#create_contact"
+  get 'admin/create_contact', to: 'admin#create_contact'
+  get 'admin/contact_list', to: 'admin#contact_list'
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end

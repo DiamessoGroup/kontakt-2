@@ -7,4 +7,8 @@ class AdminController < ApplicationController
   def profile; end
 
   def create_contact; end
+
+  def contact_list
+
+  end
 end

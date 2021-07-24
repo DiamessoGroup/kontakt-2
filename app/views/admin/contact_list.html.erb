@@ -1,0 +1,92 @@
+<% content_for :sub_title do %>
+	Contact List
+<% end %>
+
+<div class="w3-row-padding">
+	<div class="w3-col l3">
+		<div class="w3-card w3-container w3-white w3-padding-16 ">
+			<h4>Sort by</h4>
+			<input type="radio" name="sortContact" value="firstName"> <label for="firstName">First Name</label><br>
+
+			<input type="radio" name="sortContact" value="lastName"> <label for="lastName">Last Name</label><br>
+
+			<input type="radio" name="sortContact" value="title"> <label for="title">Title</label><br>
+
+			<input type="radio" name="sortContact" value="company"> <label for="company">Company</label><br>
+
+			<hr>
+			<h4>Filter by</h4>
+			<input type="checkbox" name="favorite" value="favorite">
+			<label for="favorite">Favorite</label>
+		</div>
+	</div>
+	<div class="w3-col l9">
+		<div class="w3-card w3-white w3-responsive">
+			<table class="w3-table w3-striped w3-centered w3-bordered w3-card">
+				<tr class="w3-indigo w3-padding-32">
+					<th>First Name</th>
+					<th>Last Name</th>
+					<th>Title</th>
+					<th>Company</th>
+					<th>Favorite</th>
+				</tr>
+				<tr>
+					<td class="ng-binding">Frank</td>
+					<td class="ng-binding">Smith</td>
+					<td class="ng-binding">Visual Designer</td>
+					<td class="ng-binding">Tesla</td>
+					<td class="ng-binding"></td>
+				</tr>
+				<tr>
+					<td class="ng-binding">Erik</td>
+					<td class="ng-binding">Brooks</td>
+					<td class="ng-binding">VP of Software</td>
+					<td class="ng-binding">Google</td>
+					<td class="ng-binding"></td>
+				</tr>
+				<tr>
+					<td class="ng-binding">Dianna</td>
+					<td class="ng-binding">Philipsson</td>
+					<td class="ng-binding">Information Systems Manager</td>
+					<td class="ng-binding">Nike</td>
+					<td class="ng-binding"></td>
+				</tr>
+				<tr>
+					<td class="ng-binding">Edward</td>
+					<td class="ng-binding">Wells</td>
+					<td class="ng-binding">Web Strategist</td>
+					<td class="ng-binding">Apple</td>
+					<td class="ng-binding">true</td>
+				</tr>
+				<tr>
+					<td class="ng-binding">Freddie</td>
+					<td class="ng-binding">Dixon</td>
+					<td class="ng-binding">Data Scientist</td>
+					<td class="ng-binding">Ubisoft</td>
+					<td class="ng-binding">true</td>
+				</tr>
+				<tr>
+					<td class="ng-binding">Adam</td>
+					<td class="ng-binding">Jenkins</td>
+					<td class="ng-binding">Marketing Manager</td>
+					<td class="ng-binding">Adobe</td>
+					<td class="ng-binding"></td>
+				</tr>
+				<tr>
+					<td class="ng-binding">Amy</td>
+					<td class="ng-binding">Gray</td>
+					<td class="ng-binding">Accountant</td>
+					<td class="ng-binding">Canon</td>
+					<td class="ng-binding">true</td>
+				</tr>
+				<tr>
+					<td class="ng-binding">Sophie</td>
+					<td class="ng-binding">Bailey</td>
+					<td class="ng-binding">Front End Developer</td>
+					<td class="ng-binding">Oracle</td>
+					<td class="ng-binding">true</td>
+				</tr>
+			</table>
+		</div>
+	</div>
+</div>
