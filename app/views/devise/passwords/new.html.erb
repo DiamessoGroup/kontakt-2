@@ -11,8 +11,9 @@
 			<h2 class="h3 mb-3 fw-normal">Forgot your password?</h2>
 
 			<div class="form-floating">
+
+				<%= f.email_field :email, autofocus: true, autocomplete: "email", class: "form-control", id: "floatingPassword", placeholder: "password" %>
 				<%= f.label :email %>
-				<%= f.email_field :email, autofocus: true, autocomplete: "email", class: "form-control", id: "floatingPassword" %>
 			</div>
 			<br>
 

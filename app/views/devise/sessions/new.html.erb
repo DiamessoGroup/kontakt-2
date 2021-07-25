@@ -10,12 +10,12 @@
 			<h2 class="h3 mb-3 fw-normal">Log in</h2>
 
 			<div class="field form-floating">
-				<%= f.email_field :email, autofocus: true, autocomplete: "email", class: "form-control" %>
+				<%= f.email_field :email, autofocus: true, autocomplete: "email", class: "form-control", placeholder: "name@email.com" %>
 				<%= f.label :email %>
 			</div>
 
 			<div class="field form-floating">
-				<%= f.password_field :password, autocomplete: "current-password", class: "form-control" %>
+				<%= f.password_field :password, autocomplete: "current-password", class: "form-control", placeholder: "password" %>
 				<%= f.label :password %>
 			</div>
 
