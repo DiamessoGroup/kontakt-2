@@ -35,4 +35,15 @@ class AppsTest < ApplicationSystemTestCase
     assert_selector 'h1', text: 'Dashboard - Create Contact'
   end
 
+  test 'visiting the contact list page' do
+    sign_in @user
+    visit admin_contact_list_path
+    assert_selector 'h1', text: 'Dashboard - Contact List'
+  end
+
+  test 'not logged in user visiting the admin profile page should be redirected to login page' do
+    visit admin_profile_url
+    assert_selector 'h2', text: 'Log in'
+  end
+
 end

@@ -28,4 +28,15 @@ class AdminControllerTest < ActionDispatch::IntegrationTest
     get admin_create_contact_path
     assert_redirected_to new_user_session_path
   end
+
+  test "logged in user should get contact list page" do
+    sign_in @user
+    get admin_contact_list_path
+    assert_response :success
+  end
+
+  test "not logged in user should not get contact list page" do
+    get admin_contact_list_path
+    assert_redirected_to new_user_session_path
+  end
 end

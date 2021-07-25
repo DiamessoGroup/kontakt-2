@@ -37,4 +37,18 @@ class UserFlowsTest < ActionDispatch::IntegrationTest
     assert_response :success
     assert_select 'h1', text: 'Dashboard - 	Create Contact'
   end
+
+  test "logged in user should get contact list page" do
+    get root_url
+    get new_user_session_url
+    post new_user_session_url
+    assert_response :success
+    assert_select 'h2', text: 'Log in'
+    sign_in @user
+    post new_user_session_url
+    assert_response :redirect
+    get admin_contact_list_path
+    assert_response :success
+    assert_select 'h1', text: 'Dashboard - 	Contact List'
+  end
 end
