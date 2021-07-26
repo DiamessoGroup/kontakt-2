@@ -2,17 +2,17 @@
 	<div class="position-sticky pt-3">
 		<ul class="nav flex-column">
 			<li class="nav-item">
-				<%= link_to 'My Profile', admin_profile_path, class: "nav-link" %>
+				<%= link_to "<i class='fa fa-user-circle'></i> My Profile".html_safe, admin_profile_path, class: "nav-link" %>
 			</li>
 			<li class="nav-item">
-				<%= link_to 'Create Contact', admin_create_contact_path, class: "nav-link" %>
+				<%= link_to "<i class='fa fa-user-plus'></i> Create Contact".html_safe, admin_create_contact_path, class: "nav-link" %>
 			</li>
 
 			<li class="nav-item">
-				<%= link_to 'Contact List', admin_contact_list_path, class: "nav-link" %>
+				<%= link_to "<i class='fa fa-users'></i> Contact List".html_safe, admin_contact_list_path, class: "nav-link" %>
 			</li>
 			<li class="nav-item">
-				<%= link_to 'Settings', edit_user_registration_path, class: "nav-link" %>
+				<%= link_to "<i class='fa fa-cogs'></i> Settings".html_safe, edit_user_registration_path, class: "nav-link" %>
 			</li>
 		</ul>
 	</div>
