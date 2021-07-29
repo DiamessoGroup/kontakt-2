@@ -18,7 +18,6 @@ ActiveRecord::Schema.define(version: 2021_07_27_012943) do
     t.string "title"
     t.string "company"
     t.integer "phone"
-    t.string "email"
     t.string "address"
     t.string "city"
     t.string "state"

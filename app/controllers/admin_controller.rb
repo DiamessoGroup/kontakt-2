@@ -4,7 +4,9 @@ class AdminController < ApplicationController
   before_action :authenticate_user!
   layout 'admin-layout'
 
-  def profile; end
+  def profile
+    @user = current_user
+  end
 
   def create_contact; end
 

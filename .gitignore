@@ -40,3 +40,4 @@ yarn-debug.log*
 
 # Ignore Rubymine Folder
 /.idea
+/Schema-CSV.xlsx
