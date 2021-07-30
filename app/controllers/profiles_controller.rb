@@ -29,7 +29,7 @@ class ProfilesController < ApplicationController
       redirect_to admin_profile_path
     else
       flash[:error] = 'Something went wrong'
-      render 'edit'
+      redirect_to admin_profile_path
     end
   end
 
