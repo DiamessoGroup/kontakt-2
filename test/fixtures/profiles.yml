@@ -1,25 +1,25 @@
 # Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  first_name: MyString
-  last_name: MyString
-  title: MyString
-  company: MyString
-  phone: 1
-  address: MyString
-  city: MyString
-  state: MyString
-  zip_code: MyString
-  user: one
+  first_name: John
+  last_name: Scott
+  title: Petroleum Operator
+  company: Playworld
+  phone: 077 3756 9976
+  address: 60 Warren St
+  city: West Horndon
+  state: PA
+  zip_code: CM13 9LQ
+  user: john
 
 two:
-  first_name: MyString
-  last_name: MyString
-  title: MyString
-  company: MyString
-  phone: 1
-  address: MyString
-  city: MyString
-  state: MyString
-  zip_code: MyString
-  user: two
+  first_name: Jana
+  last_name: Northup
+  title: Engineering Technician
+  company: JumboSports
+  phone: 509-793-2064
+  address: 4663 Sun Valley Road
+  city: Moses Lake
+  state: WA
+  zip_code: 98837
+  user: jane

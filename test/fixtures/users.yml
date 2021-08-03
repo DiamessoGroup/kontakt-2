@@ -13,3 +13,12 @@
 john:
   email: john@mail.com
   encrypted_password: <%= Devise::Encryptor.digest(User, 'secret') %>
+
+jane:
+  email: janedoe@mail.com
+  encrypted_password: <%= Devise::Encryptor.digest(User, 'secret2') %>
+
+mike:
+  email: mike@mail.com
+  encrypted_password: <%= Devise::Encryptor.digest(User, 'mikepass') %>
+
