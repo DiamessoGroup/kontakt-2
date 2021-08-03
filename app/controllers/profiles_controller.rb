@@ -2,9 +2,14 @@
 
 class ProfilesController < ApplicationController
   before_action :authenticate_user!
+  before_action :set_user
 
   def new
     @profile = current_user.build_profile
+    respond_to do |format|
+      format.html
+      format.js
+    end
   end
 
   def create
@@ -14,22 +19,29 @@ class ProfilesController < ApplicationController
       redirect_to admin_profile_path
     else
       flash[:error] = 'Something went wrong'
-      render 'new'
+      respond_to do |format|
+        format.js { render :new, status: :unprocessable_entity }
+      end
     end
   end
 
   def edit
     @profile = current_user.profile
+    respond_to do |format|
+      format.js
+    end
   end
 
   def update
-    @profile = current_user.reload_profile
+    @profile = current_user.profile
     if @profile.update(profile_params)
       flash[:success] = 'Your Profile was successfully updated'
       redirect_to admin_profile_path
     else
-      flash[:error] = 'Something went wrong'
-      redirect_to admin_profile_path
+      flash.now[:error] = 'Something went wrong'
+      respond_to do |format|
+        format.js { render :edit }
+      end
     end
   end
 

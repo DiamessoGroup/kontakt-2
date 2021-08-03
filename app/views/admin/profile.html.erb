@@ -18,10 +18,15 @@
 			<hr>
 			<div class="w3-center w3-container w3-row">
 				<div class="w3-col l4 s4">
-					<i class="fa fa-pencil w3-text-green" style="font-size:25px; cursor:pointer" onclick="document.getElementById('edit_profile_modal').style.display='block'"></i><br><br>
 					<% if @user.profile.nil? %>
+						<%= link_to new_user_profile_path(@user), { :remote => true, 'data-toggle' => "modal", 'data-target' => '#modal-window' } do %>
+							<i class="fa fa-pencil w3-text-green" style="font-size:25px; cursor:pointer"></i><br><br>
+						<% end %>
 						<span>Create Profile</span>
 					<% else %>
+						<%= link_to edit_user_profile_path(@user, @user.profile), { :remote => true, 'data-toggle' => "modal", 'data-target' => '#modal-window' } do %>
+							<i class="fa fa-pencil w3-text-green" style="font-size:25px; cursor:pointer"></i><br><br>
+						<% end %>
 						<span>Edit Profile</span>
 					<% end %>
 				</div>
@@ -44,9 +49,6 @@
 				</p>
 				<p>
 					<i class="fa fa-phone fa-fw w3-margin-right w3-large w3-text-indigo"></i><span><%= @user.profile.phone if @user.profile.present? %></span>
-				</p>
-				<p>
-					<i class="fa fa-envelope fa-fw w3-margin-right w3-large w3-text-indigo"></i><span><%= @user.email if @user.profile.present? %> </span>
 				</p>
 				<p>
 					<i class="fa fa-location-arrow fa-fw w3-margin-right w3-large w3-text-indigo"></i><span><%= @user.profile.full_address if @user.profile.present? %></span>
@@ -79,8 +81,6 @@
 				<h5 class="w3-opacity"><b>Reminder</b></h5>
 				<p>Business dinner with John @ Red Lobster on September 23, 2017 at 07:00 pm.</p>
 			</div>
-			<!-- ngRepeat: note in noteArray -->
-			<!-- ngRepeat: reminder in reminderArray -->
 		</div>
 		<!-- End History Tab -->
 
@@ -93,7 +93,6 @@
 			<div class="w3-container w3-card w3-margin-bottom w3-padding-16 panelCardNote">
 				<p>John was introduced by Audrey at the convention.</p>
 			</div>
-			<!-- ngRepeat: note in noteArray -->
 		</div>
 		<!-- End Notes Tab -->
 
@@ -101,31 +100,38 @@
 	<!-- End Content Side -->
 
 	<!--	Modal Edit Profile-->
-	<div id="edit_profile_modal" class="w3-modal w3-animate-opacity alert alert-dismissible">
-		<div class="w3-modal-content ">
-			<header class="w3-container w3-indigo ">
-				<button type="button" onclick="document.getElementById('edit_profile_modal').style.display='none'" class="btn-close" aria-label="Close"></button>
-				<% if @user.profile.present? %>
-					<h3>Edit Profile</h3>
-				<% else %>
-					<h3>Create Profile</h3>
-				<% end %>
-			</header>
-			<div class="w3-container">
-				<!-- If Profile is nil, Create Profile Form -->
-				<% if @user.profile.nil? %>
-					<%= form_with model: [@user, @user.build_profile] do |form| %>
-						<%= render "profiles/form", form: form %>
-					<% end %>
-				<% else %>
-					<!-- If Profile is not nil, Edit Profile Form -->
-					<%= form_with model: [@user, @user.profile] do |form| %>
-						<%= render "profiles/form", form: form %>
-					<% end %>
-				<% end %>
-			</div>
-		</div>
-	</div>
+	<!--	<div id="edit_profile_modal" class="w3-modal w3-animate-opacity alert alert-dismissible">-->
+	<!--		<div class="w3-modal-content">-->
+	<!--			<header class="w3-container w3-indigo ">-->
+	<!--				<button type="button" onclick="document.getElementById('edit_profile_modal').style.display='none'" class="btn-close" aria-label="Close"></button>-->
+	<%# if @user.profile.present? %>
+	<!--					<h3>Edit Profile</h3>-->
+	<%# else %>
+	<!--					<h3>Create Profile</h3>-->
+	<%# end %>
+	<!--			</header>-->
+	<!--			<div class="w3-container">-->
+	<!--				 If Profile is nil, Create Profile Form -->
+	<%# if @user.profile.nil? %>
+	<%#= form_with model: [@user, @user.build_profile] do |form| %>
+	<%#= render "profiles/form", form: form %>
+	<%# end %>
+	<%# else %>
+	<!--					If Profile is not nil, Edit Profile Form -->
+	<%#= form_with model: [@user, @user.profile] do |form| %>
+	<%#= render "profiles/form", form: form %>
+	<%# end %>
+	<%# end %>
+	<!--			</div>-->
+	<!--		</div>-->
+	<!--	</div>-->
 	<!-- End Modal Edit Profile-->
 
+	<div id="modal-window" class="modal hide fade" role="dialog" aria-hidden="true">
+		<div class="modal-dialog modal-dialog-centered" role="document">
+			<div class="modal-content"></div>
+		</div>
+	</div>
+	<br>
+	<br>
 </div>

@@ -1,15 +1,5 @@
-<% if @user.profile.errors.any? %>
-	<div id="error_explanation">
-		<h2><%= pluralize(@user.profile.errors.count, "error") %> prohibited this article from being saved:</h2>
-
-		<ul>
-			<% @user.profile.errors.each do |error| %>
-				<li><%= error.full_message %></li>
-			<% end %>
-		</ul>
-	</div>
-<% end %>
-<div class="row g-3 mt-3">
+<%= render 'error_profile' %>
+<div class="row g-3">
 	<div class="col-sm-6">
 		<%= form.label :first_name, class: "form-label" %>
 		<%= form.text_field :first_name, class: 'form-control' %>
