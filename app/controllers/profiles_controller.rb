@@ -15,10 +15,9 @@ class ProfilesController < ApplicationController
   def create
     @profile = current_user.build_profile(profile_params)
     if @profile.save
-      flash[:success] = 'Your Profile was successfully created'
+      flash[:success] = 'Your Profile was successfully created.'
       redirect_to admin_profile_path
     else
-      flash[:error] = 'Something went wrong'
       respond_to do |format|
         format.js { render :new, status: :unprocessable_entity }
       end
@@ -35,10 +34,9 @@ class ProfilesController < ApplicationController
   def update
     @profile = current_user.profile
     if @profile.update(profile_params)
-      flash[:success] = 'Your Profile was successfully updated'
+      flash[:success] = 'Your Profile was successfully updated.'
       redirect_to admin_profile_path
     else
-      flash.now[:error] = 'Something went wrong'
       respond_to do |format|
         format.js { render :edit }
       end

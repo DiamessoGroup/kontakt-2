@@ -21,13 +21,15 @@
 					<% if @user.profile.nil? %>
 						<%= link_to new_user_profile_path(@user), { :remote => true, 'data-toggle' => "modal", 'data-target' => '#modal-window' } do %>
 							<i class="fa fa-pencil w3-text-green" style="font-size:25px; cursor:pointer"></i><br><br>
+							<span>Create Profile</span>
 						<% end %>
-						<span>Create Profile</span>
+
 					<% else %>
 						<%= link_to edit_user_profile_path(@user, @user.profile), { :remote => true, 'data-toggle' => "modal", 'data-target' => '#modal-window' } do %>
 							<i class="fa fa-pencil w3-text-green" style="font-size:25px; cursor:pointer"></i><br><br>
+							<span>Edit Profile</span>
 						<% end %>
-						<span>Edit Profile</span>
+
 					<% end %>
 				</div>
 				<div class=" w3-col l4 s4">

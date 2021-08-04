@@ -1,9 +1,9 @@
 <div class="modal-content">
 	<div class="modal-header">
-		<% if @user.profile.present? %>
-			<h3 class="modal-title">Edit Profile</h3>
+		<% if @user.profile.id.nil? %>
+			<h3 class="modal-title">Create Profile</h3>
 		<% else %>
-			<h3 class="modal-title">Create Profile<</h3>
+			<h3 class="modal-title">Edit Profile</h3>
 		<% end %>
 		<!--		<button type="button" class="btn close" data-dismiss="modal">x</button>-->
 	</div>

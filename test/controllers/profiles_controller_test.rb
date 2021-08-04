@@ -9,7 +9,7 @@ class ProfilesControllerTest < ActionDispatch::IntegrationTest
     @mike = users(:mike)
   end
 
-  test 'should redirect create when not logged in' do
+  test 'should redirect create profile when not logged in' do
     get admin_profile_path
     assert_redirected_to new_user_session_path
     assert_no_difference 'Profile.count' do
@@ -29,7 +29,7 @@ class ProfilesControllerTest < ActionDispatch::IntegrationTest
     assert_redirected_to admin_profile_path
   end
 
-  test 'should redirect update when not logged in' do
+  test 'should redirect update profile when not logged in' do
     get admin_profile_path
     assert_redirected_to new_user_session_path
     assert_no_difference 'Profile.count' do
@@ -38,7 +38,7 @@ class ProfilesControllerTest < ActionDispatch::IntegrationTest
     assert_redirected_to new_user_session_path
   end
 
-  test 'should update when logged in' do
+  test 'should update profile when logged in' do
     sign_in @mike
     get admin_profile_path
     assert_response :success
@@ -54,4 +54,5 @@ class ProfilesControllerTest < ActionDispatch::IntegrationTest
     # Ensures that expected == actual is true.
     assert_equal(Profile.last.first_name, "Joseph")
   end
+
 end
