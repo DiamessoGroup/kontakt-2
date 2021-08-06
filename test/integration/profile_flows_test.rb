@@ -52,6 +52,8 @@ class ProfileFlowsTest < ActionDispatch::IntegrationTest
       patch user_profile_path(@mike, @mike.profile), params: { profile: { first_name: 'Ben', last_name: 'Wallace', title: "Developer" } }, xhr: true
     end
 
+    assert_equal "Your Profile was successfully updated.", flash[:success]
+
     @mike.profile.reload
     assert_equal(@mike.profile.first_name, "Ben")
     assert_equal(@mike.profile.last_name, "Wallace")

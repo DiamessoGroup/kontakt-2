@@ -5,6 +5,8 @@ require 'application_system_test_case'
 class ProfilesTest < ApplicationSystemTestCase
   def setup
     @mike = users(:mike)
+    @john = users(:john)
+    @johnprofile = profiles(:one)
   end
 
   test 'creating a profile' do
@@ -27,5 +29,20 @@ class ProfilesTest < ApplicationSystemTestCase
 
     assert_text 'Your Profile was successfully created.'
     assert_selector 'span', text: 'Project Manager'
+  end
+
+  test 'updating a profile' do
+    sign_in @john
+    visit admin_profile_url
+    assert_selector 'h1', text: 'Dashboard - My Profile'
+    click_on('Edit Profile')
+
+    fill_in('First name', with: 'Joan')
+    fill_in('Last name', with: 'Lankford')
+    fill_in('Title', with: 'Tax Preparor')
+    click_button('Update Profile')
+
+    assert_text 'Your Profile was successfully updated.'
+    assert_selector 'span', text: 'Tax Preparor'
   end
 end
