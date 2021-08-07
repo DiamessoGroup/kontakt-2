@@ -29,6 +29,7 @@ class ProfilesTest < ApplicationSystemTestCase
 
     assert_text 'Your Profile was successfully created.'
     assert_selector 'span', text: 'Project Manager'
+    # save_and_open_screenshot
   end
 
   test 'updating a profile' do
@@ -44,5 +45,7 @@ class ProfilesTest < ApplicationSystemTestCase
 
     assert_text 'Your Profile was successfully updated.'
     assert_selector 'span', text: 'Tax Preparor'
+    # page.save_screenshot('update_screenshot.png')
+    take_screenshot
   end
 end

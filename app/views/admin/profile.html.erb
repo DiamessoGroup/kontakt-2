@@ -62,72 +62,43 @@
 
 	<!-- Content Side -->
 	<div class="w3-col l8">
-		<!--TODO Fix Close Button On Card-->
-		<!-- History Tab -->
-		<div class="w3-container w3-card-2 w3-white w3-margin-bottom" id="reminder">
-			<h2 class="w3-text-indigo w3-padding-16">History</h2>
-			<div class="w3-container w3-card w3-margin-bottom panelCardNote w3-display-container alert alert-dismissible fade show" role="alert">
-				<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-				<h5 class="w3-opacity"><b>Note</b></h5>
-				<p>First Call with John was very pleasant. Their company is going through a merger that should be
-					completed
-					in a couple of months.</p>
-			</div>
 
-			<div class="w3-container w3-card w3-margin-bottom panelCardNote alert alert-dismissible fade show" role="alert">
-				<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-				<h5 class="w3-opacity"><b>Note</b></h5>
-				<p>John was introduced by Audrey at the convention.</p>
-			</div>
-			<div class="w3-container w3-card w3-margin-bottom panelCardReminder">
-				<h5 class="w3-opacity"><b>Reminder</b></h5>
-				<p>Business dinner with John @ Red Lobster on September 23, 2017 at 07:00 pm.</p>
-			</div>
-		</div>
-		<!-- End History Tab -->
-
-		<!-- Notes Tab -->
+		<!-- Add Notes Tab -->
 		<div class="w3-container w3-card-2 w3-white w3-margin-bottom">
-			<h2 class="w3-text-indigo w3-padding-16">Notes</h2>
-			<textarea name="note" id="" cols="80" rows="5" class="w3-margin-bottom w3-padding noteTabText"></textarea>
-			<button type="submit" class="w3-btn buttonColorTheme">Add Note</button>
-			<hr>
-			<div class="w3-container w3-card w3-margin-bottom w3-padding-16 panelCardNote">
-				<p>John was introduced by Audrey at the convention.</p>
-			</div>
+			<h2 class="w3-text-indigo w3-padding-16">Add A Note</h2>
+			<%= form_with model: [@user, @user.notes.build] do |form| %>
+				<%= render "notes/error_note", note: @note %>
+				<p>
+					<%= form.text_area :content, class: "w3-margin-bottom w3-padding noteTabText", cols: "80", rows: "5" %>
+				</p>
+				<p>
+					<%= form.submit "Add Note", class: "w3-btn buttonColorTheme" %>
+				</p>
+			<% end %>
 		</div>
 		<!-- End Notes Tab -->
 
-	</div>
-	<!-- End Content Side -->
+		<!-- History Tab -->
+		<div class="w3-container w3-card-2 w3-white w3-margin-bottom" id="reminder">
+			<h2 class="w3-text-indigo w3-padding-16">Note History</h2>
 
-	<!--	Modal Edit Profile-->
-	<!--	<div id="edit_profile_modal" class="w3-modal w3-animate-opacity alert alert-dismissible">-->
-	<!--		<div class="w3-modal-content">-->
-	<!--			<header class="w3-container w3-indigo ">-->
-	<!--				<button type="button" onclick="document.getElementById('edit_profile_modal').style.display='none'" class="btn-close" aria-label="Close"></button>-->
-	<%# if @user.profile.present? %>
-	<!--					<h3>Edit Profile</h3>-->
-	<%# else %>
-	<!--					<h3>Create Profile</h3>-->
-	<%# end %>
-	<!--			</header>-->
-	<!--			<div class="w3-container">-->
-	<!--				 If Profile is nil, Create Profile Form -->
-	<%# if @user.profile.nil? %>
-	<%#= form_with model: [@user, @user.build_profile] do |form| %>
-	<%#= render "profiles/form", form: form %>
-	<%# end %>
-	<%# else %>
-	<!--					If Profile is not nil, Edit Profile Form -->
-	<%#= form_with model: [@user, @user.profile] do |form| %>
-	<%#= render "profiles/form", form: form %>
-	<%# end %>
-	<%# end %>
-	<!--			</div>-->
-	<!--		</div>-->
-	<!--	</div>-->
-	<!-- End Modal Edit Profile-->
+			<% if @user.notes.present? %>
+				<% @user.notes.each do |note| %>
+					<% unless note.id.nil? %>
+						<div class="w3-container w3-card w3-margin-bottom panelCardNote alert alert-dismissible fade show" role="alert">
+							<%= link_to user_note_path(note.user, note), method: :delete, data: { confirm: "You are about to delete this note. Are you sure?" } do %>
+								<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+							<% end %>
+							<h5 class="w3-opacity"><b>Note.</b>
+								<span class="time-ago">Posted <%= time_ago_in_words(note.created_at) %> ago.</span></h5>
+							<p><%= note.content %></p>
+						</div>
+					<% end %>
+				<% end %>
+			<% end %>
+		</div>
+		<!-- End History Tab -->
+	</div>
 
 	<div id="modal-window" class="modal hide fade" role="dialog" aria-hidden="true">
 		<div class="modal-dialog modal-dialog-centered" role="document">

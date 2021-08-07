@@ -18,6 +18,7 @@ Rails.application.routes.draw do
 
   resources :users do
     resources :profiles, only: [:new, :create, :edit, :update]
+    resources :notes
   end
 
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html

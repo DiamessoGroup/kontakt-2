@@ -6,11 +6,11 @@ class AdminController < ApplicationController
 
   def profile
     @user = current_user
+    @note = @user.notes.build
   end
 
   def create_contact; end
 
   def contact_list
-
   end
 end

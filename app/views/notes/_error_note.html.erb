@@ -1,0 +1,12 @@
+<!--	Error Form For Notes -->
+<% if note.errors.any? %>
+	<div id="error_explanation">
+		<h4><%= pluralize(note.errors.count, "error") %> prohibited this note from being saved:</h4>
+		<ul>
+			<% note.errors.each do |error| %>
+				<li><%= error.full_message %></li>
+			<% end %>
+		</ul>
+	</div>
+<% end %>
+<!--End Error Form For Notes -->

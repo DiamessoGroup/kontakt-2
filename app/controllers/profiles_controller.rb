@@ -5,7 +5,7 @@ class ProfilesController < ApplicationController
   before_action :set_user
 
   def new
-    @profile = current_user.build_profile
+    @profile = @user.build_profile
     respond_to do |format|
       format.html
       format.js
@@ -13,7 +13,7 @@ class ProfilesController < ApplicationController
   end
 
   def create
-    @profile = current_user.build_profile(profile_params)
+    @profile = @user.build_profile(profile_params)
     if @profile.save
       flash[:success] = 'Your Profile was successfully created.'
       redirect_to admin_profile_path
@@ -25,14 +25,14 @@ class ProfilesController < ApplicationController
   end
 
   def edit
-    @profile = current_user.profile
+    @profile = @user.profile
     respond_to do |format|
       format.js
     end
   end
 
   def update
-    @profile = current_user.profile
+    @profile = @user.profile
     if @profile.update(profile_params)
       flash[:success] = 'Your Profile was successfully updated.'
       redirect_to admin_profile_path
