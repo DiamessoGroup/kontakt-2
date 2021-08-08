@@ -15,7 +15,7 @@ class NotesController < ApplicationController
   def create
     @note = @user.notes.build(note_params)
     if @note.save
-      flash[:success] = 'Your Note successfully created.'
+      flash[:success] = 'Your Note was successfully created.'
       redirect_to admin_profile_path
     else
       flash.now[:error] = 'Something went wrong. Your Note could not be saved.'
@@ -26,7 +26,7 @@ class NotesController < ApplicationController
   def destroy
     @note = @user.notes.find(params[:id])
     if @note.destroy
-      flash[:success] = 'Your note was successfully deleted.'
+      flash[:success] = 'Your Note was successfully deleted.'
     else
       flash[:error] = 'Something went wrong. Your Note could not be deleted.'
     end

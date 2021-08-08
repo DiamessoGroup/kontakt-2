@@ -2,7 +2,7 @@
 
 require 'application_system_test_case'
 
-class ProfilesTest < ApplicationSystemTestCase
+class ProfilesSystemTest < ApplicationSystemTestCase
   def setup
     @mike = users(:mike)
     @john = users(:john)

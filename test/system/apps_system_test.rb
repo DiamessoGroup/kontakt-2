@@ -1,6 +1,6 @@
 require 'application_system_test_case'
 
-class AppsTest < ApplicationSystemTestCase
+class AppsSystemTest < ApplicationSystemTestCase
 
   def setup
     @user = users(:john)

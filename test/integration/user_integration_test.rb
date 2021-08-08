@@ -2,7 +2,7 @@
 
 require 'test_helper'
 
-class UserFlowsTest < ActionDispatch::IntegrationTest
+class UserIntegrationTest < ActionDispatch::IntegrationTest
 
   def setup
     @user = users(:john)

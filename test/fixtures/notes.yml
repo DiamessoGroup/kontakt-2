@@ -1,9 +1,13 @@
 # Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
-one:
-  content: MyText
-  user: one
+mike_note:
+  content: This is a note for Mike
+  user: mike
 
-two:
-  content: MyText
-  user: two
+mike_second_note:
+  content: This is Mike second note for Mike
+  user: mike
+
+jane_note:
+  content: This is Jane's Note
+  user: jane

@@ -2,7 +2,7 @@
 
 require 'test_helper'
 
-class ProfileFlowsTest < ActionDispatch::IntegrationTest
+class ProfileIntegrationTest < ActionDispatch::IntegrationTest
   setup do
     @mike = users(:mike)
   end
