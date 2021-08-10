@@ -9,7 +9,9 @@ class AdminController < ApplicationController
     @note = @user.notes.build
   end
 
-  def create_contact; end
+  def create_contact
+
+  end
 
   def contact_list
   end

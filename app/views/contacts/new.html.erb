@@ -1,0 +1,54 @@
+<% content_for :sub_title do %>
+	Create Contact
+<% end %>
+
+<!--TODO fix Missing associated label for input-->
+<%= form_with model: [@user, @user.contacts.build] do |form| %>
+	<div class="w3-white w3-padding-16 w3-container w3-card w3-section">
+
+		<div class="w3-margin-top">
+			<div class="w3-margin-bottom w3-padding-8">
+				<%= form.check_box :favorite %>
+				<i class="fa fa-thumbs-up fa-fw w3-large w3-text-black"></i><%= form.label :favorite %>
+			</div>
+			<div class="w3-row">
+				<div class="w3-col l6 w3-margin-bottom w3-padding-8">
+					<%= form.label :first_name, '<i class="fa fa-user fa-fw w3-large w3-text-black"></i>'.html_safe %>
+					<%= form.text_field :first_name, class: "w3-input contactFormLength", placeholder: "First Name" %>
+				</div>
+				<div class="w3-col l6 w3-margin-bottom w3-padding-8">
+					<%= form.label :last_name, '<i class="fa fa-user fa-fw w3-large w3-text-black"></i>'.html_safe %>
+					<%= form.text_field :last_name, class: "w3-input contactFormLength", placeholder: "Last Name" %>
+				</div>
+			</div>
+			<div class="w3-row">
+				<div class="w3-margin-bottom w3-padding-8 w3-col l6">
+					<%= form.label :title, '<i class="fa fa-suitcase fa-fw w3-large w3-text-black"></i>'.html_safe %>
+					<%= form.text_field :title, class: "w3-input contactFormLength", placeholder: "Title" %>
+				</div>
+				<div class="w3-margin-bottom w3-padding-8 w3-col l6">
+					<%= form.label :company, '<i class="fa fa-building fa-fw w3-large w3-text-black"></i>'.html_safe %>
+					<%= form.text_field :company, class: "w3-input contactFormLength", placeholder: "Company" %>
+				</div>
+			</div>
+			<div>
+				<div class="w3-margin-bottom w3-padding-8 w3-col l6">
+					<%= form.label :phone, '<i class="fa fa-phone fa-fw w3-large w3-text-black"></i>'.html_safe %>
+					<%= form.text_field :phone, class: "w3-input contactFormLength", placeholder: "Phone" %>
+				</div>
+				<div class="w3-margin-bottom w3-padding-8 w3-col l6">
+					<%= form.label :email, '<i class="fa fa-envelope fa-fw w3-large w3-text-black"></i>'.html_safe %>
+					<%= form.text_field :email, class: "w3-input contactFormLength", placeholder: "Email" %>
+				</div>
+			</div>
+			<div class="w3-margin-bottom w3-padding-8">
+				<%= form.label :address, '<i class="fa fa-location-arrow fa-fw w3-large w3-text-black"></i>'.html_safe %>
+				<%= form.text_field :address, class: "w3-input contactFormLength", placeholder: "Address" %>
+			</div>
+		</div>
+		<div class="w3-margin-bottom w3-padding-16 contactFormLength">
+			<%= form.submit class: "w3-btn buttonColorTheme w3-left" %>
+			<button type="reset" class="w3-btn buttonColorTheme w3-right">Clear</button>
+		</div>
+	</div>
+<% end %>

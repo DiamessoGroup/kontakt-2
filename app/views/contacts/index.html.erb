@@ -1,0 +1,45 @@
+<% content_for :sub_title do %>
+	Contact List
+<% end %>
+
+<div class="w3-row-padding w3-stretch">
+	<div class="w3-col l3">
+		<div class="w3-card w3-container w3-white w3-padding-16 ">
+			<h4>Sort by</h4>
+			<input type="radio" name="sortContact" value="firstName"> <label for="firstName">First Name</label><br>
+
+			<input type="radio" name="sortContact" value="lastName"> <label for="lastName">Last Name</label><br>
+
+			<input type="radio" name="sortContact" value="title"> <label for="title">Title</label><br>
+
+			<input type="radio" name="sortContact" value="company"> <label for="company">Company</label><br>
+
+			<hr>
+			<h4>Filter by</h4>
+			<input type="checkbox" name="favorite" value="favorite">
+			<label for="favorite">Favorite</label>
+		</div>
+	</div>
+	<div class="w3-col l9">
+		<div class="w3-card w3-white w3-responsive">
+			<table class="w3-table w3-striped w3-centered w3-bordered w3-card">
+				<tr class="w3-indigo w3-padding-32">
+					<th>First Name</th>
+					<th>Last Name</th>
+					<th>Title</th>
+					<th>Company</th>
+					<th>Favorite</th>
+				</tr>
+				<% @contacts.each do |contact| %>
+					<tr>
+						<td class=""><%= contact.first_name %></td>
+						<td class=""><%= contact.last_name %></td>
+						<td class=""><%= contact.title %></td>
+						<td class=""><%= contact.company %></td>
+						<td class=""><%= is_favorite?(contact.favorite) %></td>
+					</tr>
+				<% end %>
+			</table>
+		</div>
+	</div>
+</div>
