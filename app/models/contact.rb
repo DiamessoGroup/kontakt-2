@@ -7,5 +7,5 @@ class Contact < ApplicationRecord
   validates :last_name, presence: true
 
   # Will paginate per 5 pages
-  self.per_page = 5
+  self.per_page = 10
 end
