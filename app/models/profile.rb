@@ -2,6 +2,13 @@ class Profile < ApplicationRecord
   # Association
   belongs_to :user
 
+  # Callbacks
+  # Strip First Name and Last Name of spaces
+  before_save do
+    self.first_name = first_name.strip
+    self.last_name = last_name.strip
+  end
+
   # Validations
   validates :first_name, presence: true
   validates :last_name, presence: true

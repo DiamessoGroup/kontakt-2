@@ -1,12 +1,12 @@
 <%= render 'error_profile' %>
 <div class="row g-3">
 	<div class="col-sm-6">
-		<%= form.label :first_name, class: "form-label" %>
+		<%= form.label :first_name, class: "form-label" %><span class="w3-tiny"> *required</span>
 		<%= form.text_field :first_name, class: 'form-control' %>
 	</div>
 
 	<div class="col-sm-6">
-		<%= form.label :last_name, class: "form-label" %>
+		<%= form.label :last_name, class: "form-label" %><span class="w3-tiny"> *required</span>
 		<%= form.text_field :last_name, class: 'form-control' %>
 	</div>
 

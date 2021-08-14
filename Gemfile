@@ -21,6 +21,12 @@ gem 'jbuilder', '~> 2.7'
 # Rexml
 gem 'rexml'
 
+# Will_Paginate for contacts pagination
+gem 'will_paginate'
+
+# Will Paginate Bootstrap
+gem 'bootstrap-will_paginate'
+
 # Devise
 gem 'devise'
 

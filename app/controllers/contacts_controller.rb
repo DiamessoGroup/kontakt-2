@@ -9,12 +9,12 @@ class ContactsController < ApplicationController
     if params.key?(:favorite)
       case params[:favorite]
       when '1'
-        @contacts = @user.contacts.where(favorite: true)
+        @contacts = @user.contacts.where(favorite: true).paginate(page: params[:page])
       when '0'
-        @contacts = @user.contacts.where(favorite: false)
+        @contacts = @user.contacts.where(favorite: false).paginate(page: params[:page])
       end
     else
-      @contacts = @user.contacts
+      @contacts = @user.contacts.paginate(page: params[:page])
     end
   end
 
@@ -28,8 +28,8 @@ class ContactsController < ApplicationController
       flash[:success] = 'Your Contact was successfully created.'
       redirect_to user_contacts_path
     else
-      flash[:error] = 'Something went wrong.'
-      render 'new'
+      flash.now[:error] = 'Something went wrong.'
+      render :new
     end
   end
 

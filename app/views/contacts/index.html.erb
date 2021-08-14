@@ -22,10 +22,11 @@
 				<%= form.label :favorite %>
 				<%= form.submit %>
 			<% end %>
+			<%= form_with url: user_contacts_path(@user, @contact), class: "w3-margin-top", method: :get do |form| %>
+				<%= form.submit "Reset", class: "w3-btn buttonColorTheme" %>
+			<% end %>
 		</div>
-		<%= form_with url: user_contacts_path(@user, @contact), method: :get do |form| %>
-			<%= form.submit "Reset" %>
-		<% end %>
+
 	</div>
 	<div class="w3-col l9">
 		<div class="w3-card w3-white w3-responsive">
@@ -48,5 +49,10 @@
 				<% end %>
 			</table>
 		</div>
+		<div class="w3-margin-top">
+			<%= will_paginate @contacts, renderer: WillPaginate::ActionView::Bootstrap4LinkRenderer, previous_label: '&laquo;', next_label: '&raquo;' %>
+		</div>
 	</div>
+
+
 </div>

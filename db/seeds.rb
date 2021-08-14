@@ -40,3 +40,6 @@ Contact.create(first_name: 'Amy', last_name: 'Gray', title: 'Accountant', compan
 
 Contact.create(first_name: 'Sophie', last_name: 'Bailey', title: 'Front End Developer', company: 'Oracle',
                favorite: true, user_id: 1)
+
+Contact.create(first_name: 'Elsie', last_name: 'Reichert', title: 'Electrical Power Line Installer', company: 'Musicland',
+               favorite: false, user_id: 1)
