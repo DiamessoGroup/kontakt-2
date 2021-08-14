@@ -20,7 +20,7 @@ class AdminControllerTest < ActionDispatch::IntegrationTest
 
   test 'logged in user should get create contact page' do
     sign_in @user
-    get admin_create_contact_path
+    get new_user_contact_path(@user)
     assert_response :success
   end
 
@@ -31,7 +31,7 @@ class AdminControllerTest < ActionDispatch::IntegrationTest
 
   test "logged in user should get contact list page" do
     sign_in @user
-    get admin_contact_list_path
+    get user_contacts_path(@user)
     assert_response :success
   end
 

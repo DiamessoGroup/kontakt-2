@@ -6,7 +6,16 @@ class ContactsController < ApplicationController
   layout 'admin-layout'
 
   def index
-    @contacts = @user.contacts
+    if params.key?(:favorite)
+      case params[:favorite]
+      when '1'
+        @contacts = @user.contacts.where(favorite: true)
+      when '0'
+        @contacts = @user.contacts.where(favorite: false)
+      end
+    else
+      @contacts = @user.contacts
+    end
   end
 
   def new

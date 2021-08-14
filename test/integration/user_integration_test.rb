@@ -33,7 +33,7 @@ class UserIntegrationTest < ActionDispatch::IntegrationTest
     sign_in @user
     post new_user_session_url
     assert_response :redirect
-    get admin_create_contact_path
+    get new_user_contact_path(@user)
     assert_response :success
     assert_select 'h1', text: 'Dashboard - 	Create Contact'
   end
@@ -47,7 +47,7 @@ class UserIntegrationTest < ActionDispatch::IntegrationTest
     sign_in @user
     post new_user_session_url
     assert_response :redirect
-    get admin_contact_list_path
+    get user_contacts_path(@user)
     assert_response :success
     assert_select 'h1', text: 'Dashboard - 	Contact List'
   end
