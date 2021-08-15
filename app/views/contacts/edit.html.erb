@@ -1,11 +1,11 @@
 <% content_for :sub_title do %>
-	Create Contact
+	Edit Contact
 <% end %>
 
 <%= link_to :back, class: " w3-margin-bottom" do %>
 	<button class="w3-btn buttonColorTheme">Back</button>
 <% end %>
 
-<%= form_with model: [@user, @user.contacts.build] do |form| %>
+<%= form_with model: [@user, @contact] do |form| %>
 	<%= render 'form', form: form %>
 <% end %>

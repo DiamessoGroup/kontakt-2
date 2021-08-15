@@ -18,6 +18,10 @@ class ContactsController < ApplicationController
     end
   end
 
+  def show
+    @contact = @user.contacts.find(params[:id])
+  end
+
   def new
     @contact = @user.contacts.build
   end
@@ -31,6 +35,28 @@ class ContactsController < ApplicationController
       flash.now[:error] = 'Something went wrong.'
       render :new
     end
+  end
+
+  def edit
+    @contact = @user.contacts.find(params[:id])
+  end
+
+  def update
+    @contact = @user.contacts.find(params[:id])
+    if @contact.update(contact_params)
+      flash[:success] = 'Your Contact was successfully updated.'
+      redirect_to user_contact_path
+    else
+      flash[:error] = 'Something went wrong.'
+      render 'edit'
+    end
+  end
+
+  def destroy
+    @contact = @user.contacts.find(params[:id])
+    @contact.destroy
+    flash[:success] = 'Your contact was successfully deleted.'
+    redirect_to user_contacts_url
   end
 
   def contact_params

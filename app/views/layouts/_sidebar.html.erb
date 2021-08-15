@@ -5,11 +5,7 @@
 				<%= link_to "<i class='fa fa-user-circle'></i> My Profile".html_safe, admin_profile_path, class: "nav-link" %>
 			</li>
 			<li class="nav-item">
-				<%= link_to "<i class='fa fa-user-plus'></i> Create Contact".html_safe, new_user_contact_path(@user), class: "nav-link" %>
-			</li>
-
-			<li class="nav-item">
-				<%= link_to "<i class='fa fa-users'></i> Contact List".html_safe, user_contacts_path(@user), class: "nav-link" %>
+				<%= link_to "<i class='fa fa-users'></i> My Contacts".html_safe, user_contacts_path(@user), class: "nav-link" %>
 			</li>
 			<hr>
 			<li class="nav-item">

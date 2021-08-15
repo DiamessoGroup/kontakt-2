@@ -17,7 +17,7 @@
 			</div>
 			<hr>
 			<div class="w3-center w3-container w3-row">
-				<div class="w3-col l4 s4">
+				<div class="w3-col l12 s12">
 					<% if @user.profile.nil? %>
 						<%= link_to new_user_profile_path(@user), { :remote => true, 'data-toggle' => "modal", 'data-target' => '#modal-window' } do %>
 							<i class="fa fa-pencil w3-text-green" style="font-size:25px; cursor:pointer"></i><br><br>
@@ -31,14 +31,6 @@
 						<% end %>
 
 					<% end %>
-				</div>
-				<div class=" w3-col l4 s4">
-					<i class="fa fa-thumbs-up favoriteThumb" id="favorite"></i><br><br>
-					<span>Favorite</span>
-				</div>
-				<div class="w3-col l4 s4">
-					<i class="fa fa-trash w3-text-orange" style="font-size:25px; cursor:pointer;"></i><br><br>
-					<span>Delete Profile</span>
 				</div>
 			</div>
 			<hr>

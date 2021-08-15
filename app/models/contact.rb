@@ -8,4 +8,8 @@ class Contact < ApplicationRecord
 
   # Will paginate per 5 pages
   self.per_page = 10
+
+  def full_name
+    "#{first_name} #{last_name}"
+  end
 end

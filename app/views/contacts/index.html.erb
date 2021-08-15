@@ -32,11 +32,12 @@
 		<div class="w3-card w3-white w3-responsive">
 			<table class="w3-table w3-striped w3-centered w3-bordered w3-card">
 				<tr class="w3-indigo w3-padding-32">
-					<th><%= link_to "Player Name", :sort => "first_name" %></th>
+					<th>First Name</th>
 					<th>Last Name</th>
 					<th>Title</th>
 					<th>Company</th>
 					<th>Favorite</th>
+					<th>Contact Profile</th>
 				</tr>
 				<% @contacts.each do |contact| %>
 					<tr>
@@ -45,6 +46,7 @@
 						<td class=""><%= contact.title %></td>
 						<td class=""><%= contact.company %></td>
 						<td class=""><%= is_favorite?(contact.favorite) %></td>
+						<td class=""><%= link_to "<i class='fa fa-eye'></i>".html_safe, user_contact_path(@user, contact) %></td>
 					</tr>
 				<% end %>
 			</table>
