@@ -45,8 +45,8 @@ Contact.create!(first_name: 'Elsie', last_name: 'Reichert', title: 'Electrical P
                 favorite: false, user_id: 1)
 
 15.times do
-  Contact.create!(first_name: Faker::Name.first_name, last_name: Faker::Name.last_name, title: Faker::Company.profession.capitalize, company: Faker::Company.name,
-                  favorite: false, user_id: 1)
-  Contact.create!(first_name: Faker::Name.first_name, last_name: Faker::Name.last_name, title: Faker::Company.profession.capitalize, company: Faker::Company.name,
-                  favorite: true, user_id: 1)
+  Contact.create!(first_name: Faker::Name.first_name, last_name: Faker::Name.last_name, email: Faker::Internet.email, phone: Faker::PhoneNumber.cell_phone, address: Faker::Address.full_address, title: Faker::Company.profession.capitalize, company: Faker::Company.name,
+                  favorite: [true, false].sample, user_id: 1)
+  Contact.create!(first_name: Faker::Name.first_name, last_name: Faker::Name.last_name, email: Faker::Internet.email, phone: Faker::PhoneNumber.cell_phone, address: Faker::Address.full_address, title: Faker::Company.profession.capitalize, company: Faker::Company.name,
+                  favorite: [true, false].sample, user_id: 1)
 end
