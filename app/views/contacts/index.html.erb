@@ -46,7 +46,7 @@
 						<td class=""><%= contact.title %></td>
 						<td class=""><%= contact.company %></td>
 						<td class=""><%= is_favorite?(contact.favorite) %></td>
-						<td class=""><%= link_to "<i class='fa fa-eye'></i>".html_safe, user_contact_path(@user, contact) %></td>
+						<td class=""><%= link_to "<i class='fa fa-id-card'></i>".html_safe, user_contact_path(@user, contact) %></td>
 					</tr>
 				<% end %>
 			</table>
