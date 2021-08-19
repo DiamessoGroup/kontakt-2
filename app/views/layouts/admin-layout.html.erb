@@ -1,59 +1,63 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<title>Kontakt - Dashboard</title>
-	<meta name="viewport" content="width=device-width,initial-scale=1">
-	<%= csrf_meta_tags %>
-	<%= csp_meta_tag %>
+  <title>Kontakt - Dashboard</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <%= csrf_meta_tags %>
+  <%= csp_meta_tag %>
 
-	<!-- Font Awesome -->
-	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
-	<%= stylesheet_link_tag 'admin/admin', media: 'all', 'data-turbolinks-track': 'reload' %>
-	<%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+  <%= stylesheet_link_tag 'admin/admin', media: 'all', 'data-turbolinks-track': 'reload' %>
+  <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
 
-	<!-- W3 CSS -->
-	<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-	<%= stylesheet_link_tag 'admin/main', media: 'all', 'data-turbolinks-track': 'reload' %>
-	<%= stylesheet_link_tag 'profiles', media: 'all', 'data-turbolinks-track': 'reload' %>
+  <!-- W3 CSS -->
+  <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+  <%= stylesheet_link_tag 'admin/main', media: 'all', 'data-turbolinks-track': 'reload' %>
+  <%= stylesheet_link_tag 'profiles', media: 'all', 'data-turbolinks-track': 'reload' %>
 
 </head>
 <body>
 
 <header class="navbar navbar-dark sticky-top bg-dark flex-md-nowrap p-0 shadow">
-	<%= link_to 'Kontakt', root_path, class: "navbar-brand col-md-3 col-lg-2 me-0 px-3" %>
-	<button class="navbar-toggler position-absolute d-md-none collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#sidebarMenu" aria-controls="sidebarMenu" aria-expanded="false" aria-label="Toggle navigation">
-		<span class="navbar-toggler-icon"></span>
-	</button>
-	<input class="form-control form-control-dark w-100" type="text" placeholder="Search" aria-label="Search">
-	<ul class="navbar-nav px-3">
-		<li class="nav-item text-nowrap">
-			<%= link_to 'Sign Out', destroy_user_session_path, method: :delete, class: "nav-link" %>
-		</li>
-	</ul>
+  <%= link_to 'Kontakt', root_path, class: "navbar-brand col-md-3 col-lg-2 me-0 px-3" %>
+  <button class="navbar-toggler position-absolute d-md-none collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#sidebarMenu" aria-controls="sidebarMenu" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <!--  <input class="form-control form-control-dark w-100" type="text" placeholder="Search" aria-label="Search">-->
+  <%= form_with url: contacts_search_path, method: :get, class: "d-flex form-control-dark w-100" do |form| %>
+    <%= form.text_field :query, placeholder: "Search", class: "form-control form-control-dark w-100" %>
+    <%= form.submit class: "btn btn-dark" %>
+  <% end %>
+  <ul class="navbar-nav px-3">
+    <li class="nav-item text-nowrap">
+      <%= link_to 'Sign Out', destroy_user_session_path, method: :delete, class: "nav-link" %>
+    </li>
+  </ul>
 </header>
 
 
 <div class="container-fluid">
-	<div class="row">
-		<%= render "layouts/sidebar" %>
+  <div class="row">
+    <%= render "layouts/sidebar" %>
 
-		<main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
+    <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
 
-			<div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
-				<h1 class="h2">Dashboard - <%= content_for :sub_title %></h1>
-				<div class="btn-toolbar mb-2 mb-md-0">
-					<div class="btn-group me-2">
-						<%= link_to 'My Profile', admin_profile_path, class: "btn btn-sm btn-outline-secondary" %>
-						<%= link_to 'Contact List', user_contacts_path(@user), class: "btn btn-sm btn-outline-secondary" %>
-						<%= link_to 'Create Contact', new_user_contact_path(@user), class: "btn btn-sm btn-outline-secondary" %>
-					</div>
-				</div>
-			</div>
-			<%= render "layouts/flash" %>
-			<%= yield %>
-		</main>
-	</div>
+      <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+        <h1 class="h2">Dashboard -<%= content_for :sub_title %></h1>
+        <div class="btn-toolbar mb-2 mb-md-0">
+          <div class="btn-group me-2">
+            <%= link_to 'My Profile', admin_profile_path, class: "btn btn-sm btn-outline-secondary" %>
+            <%= link_to 'Contact List', user_contacts_path(@user), class: "btn btn-sm btn-outline-secondary" %>
+            <%= link_to 'Create Contact', new_user_contact_path(@user), class: "btn btn-sm btn-outline-secondary" %>
+          </div>
+        </div>
+      </div>
+      <%= render "layouts/flash" %>
+      <%= yield %>
+    </main>
+  </div>
 </div>
 
 <script src="https://cdn.jsdelivr.net/npm/feather-icons@4.28.0/dist/feather.min.js" integrity="sha384-uO3SXW5IuS1ZpFPKugNNWqTZRRglnUJK6UAZ/gxOX80nxEkN9NcGZTftn6RzhGWE" crossorigin="anonymous"></script>

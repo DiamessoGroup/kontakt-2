@@ -8,7 +8,7 @@ one:
   title: MyString
   company: MyString
   favorite: false
-  user: one
+  user: john
 
 two:
   first_name: MyString
@@ -18,4 +18,4 @@ two:
   title: MyString
   company: MyString
   favorite: false
-  user: two
+  user: john

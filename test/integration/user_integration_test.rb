@@ -20,7 +20,7 @@ class UserIntegrationTest < ActionDispatch::IntegrationTest
     post new_user_session_url
     assert_response :redirect
     get admin_profile_url
-    assert_select 'h1', text: 'Dashboard - 	My Profile'
+    assert_select 'h1', text: 'Dashboard - My Profile'
     assert_select 'a', text: 'My Profile'
   end
 
@@ -35,7 +35,7 @@ class UserIntegrationTest < ActionDispatch::IntegrationTest
     assert_response :redirect
     get new_user_contact_path(@user)
     assert_response :success
-    assert_select 'h1', text: 'Dashboard - 	Create Contact'
+    assert_select 'h1', text: 'Dashboard - Create Contact'
   end
 
   test "logged in user should get contact list page" do
@@ -49,6 +49,6 @@ class UserIntegrationTest < ActionDispatch::IntegrationTest
     assert_response :redirect
     get user_contacts_path(@user)
     assert_response :success
-    assert_select 'h1', text: 'Dashboard - 	Contact List'
+    assert_select 'h1', text: 'Dashboard - Contact List'
   end
 end

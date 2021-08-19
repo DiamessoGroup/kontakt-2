@@ -59,6 +59,11 @@ class ContactsController < ApplicationController
     redirect_to user_contacts_url
   end
 
+  def search
+    @query = params[:query]
+    @contacts = @user.contacts.where('first_name like ? or last_name like ?', "%#{@query}%", "%#{@query}%").paginate(page: params[:page])
+  end
+
   def contact_params
     params.require(:contact).permit(:first_name, :last_name, :email, :phone, :address, :title, :company, :favorite,
                                     :user_id)
