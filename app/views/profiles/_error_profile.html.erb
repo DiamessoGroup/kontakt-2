@@ -1,11 +1,11 @@
 <% if @user.profile.errors.any? %>
-	<div id="error_explanation">
-		<h4><%= pluralize(@user.profile.errors.count, "error") %> prohibited this profile from being saved:</h4>
+  <div id="error_explanation">
+    <h4><%= pluralize(@user.profile.errors.count, "error") %> prohibited this profile from being saved:</h4>
 
-		<ul>
-			<% @user.profile.errors.each do |error| %>
-				<li><%= error.full_message %></li>
-			<% end %>
-		</ul>
-	</div>
+    <ul>
+      <% @user.profile.errors.each do |error| %>
+        <li><%= error.full_message %></li>
+      <% end %>
+    </ul>
+  </div>
 <% end %>

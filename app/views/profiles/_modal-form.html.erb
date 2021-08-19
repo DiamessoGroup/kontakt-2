@@ -1,25 +1,25 @@
 <div class="modal-content">
-	<div class="modal-header">
-		<% if @user.profile.id.nil? %>
-			<h3 class="modal-title">Create Profile</h3>
-		<% else %>
-			<h3 class="modal-title">Edit Profile</h3>
-		<% end %>
-		<!--		<button type="button" class="btn close" data-dismiss="modal">x</button>-->
-	</div>
-	<div class="modal-body">
-		<div class="">
-			<!-- If Profile is nil, Create Profile Form  -->
-			<% if @user.profile.nil? %>
-				<%= form_with(model: [@user, @user.build_profile], local: false) do |form| %>
-					<%= render "profiles/form", form: form %>
-				<% end %>
-			<% else %>
-				<!-- If Profile is not nil, Edit Profile Form  -->
-				<%= form_with(model: [@user, @user.profile], local: false) do |form| %>
-					<%= render "profiles/form", form: form %>
-				<% end %>
-			<% end %>
-		</div>
-	</div>
+  <div class="modal-header">
+    <% if @user.profile.id.nil? %>
+      <h3 class="modal-title">Create Profile</h3>
+    <% else %>
+      <h3 class="modal-title">Edit Profile</h3>
+    <% end %>
+    <!--		<button type="button" class="btn close" data-dismiss="modal">x</button>-->
+  </div>
+  <div class="modal-body">
+    <div class="">
+      <!-- If Profile is nil, Create Profile Form  -->
+      <% if @user.profile.nil? %>
+        <%= form_with(model: [@user, @user.build_profile], local: false) do |form| %>
+          <%= render "profiles/form", form: form %>
+        <% end %>
+      <% else %>
+        <!-- If Profile is not nil, Edit Profile Form  -->
+        <%= form_with(model: [@user, @user.profile], local: false) do |form| %>
+          <%= render "profiles/form", form: form %>
+        <% end %>
+      <% end %>
+    </div>
+  </div>
 </div>

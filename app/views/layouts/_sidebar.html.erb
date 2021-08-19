@@ -1,16 +1,16 @@
 <nav id="sidebarMenu" class="col-md-3 col-lg-2 d-md-block bg-light sidebar collapse">
-	<div class="position-sticky pt-3">
-		<ul class="nav flex-column">
-			<li class="nav-item">
-				<%= link_to "<i class='fa fa-user-circle'></i> My Profile".html_safe, admin_profile_path, class: "nav-link" %>
-			</li>
-			<li class="nav-item">
-				<%= link_to "<i class='fa fa-users'></i> My Contacts".html_safe, user_contacts_path(@user), class: "nav-link" %>
-			</li>
-			<hr>
-			<li class="nav-item">
-				<%= link_to "<i class='fa fa-cogs'></i> Settings".html_safe, edit_user_registration_path, class: "nav-link" %>
-			</li>
-		</ul>
-	</div>
+  <div class="position-sticky pt-3">
+    <ul class="nav flex-column">
+      <li class="nav-item">
+        <%= link_to "<i class='fa fa-user-circle'></i> My Profile".html_safe, admin_profile_path, class: "nav-link" %>
+      </li>
+      <li class="nav-item">
+        <%= link_to "<i class='fa fa-users'></i> My Contacts".html_safe, user_contacts_path(@user), class: "nav-link" %>
+      </li>
+      <hr>
+      <li class="nav-item">
+        <%= link_to "<i class='fa fa-cogs'></i> Settings".html_safe, edit_user_registration_path, class: "nav-link" %>
+      </li>
+    </ul>
+  </div>
 </nav>

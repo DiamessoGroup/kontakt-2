@@ -1,12 +1,12 @@
 <!--	Error Form For Notes -->
 <% if contact.errors.any? %>
-	<div id="error_explanation">
-		<h4><%= pluralize(contact.errors.count, "error") %> prohibited this contact from being saved:</h4>
-		<ul>
-			<% contact.errors.each do |error| %>
-				<li><%= error.full_message %></li>
-			<% end %>
-		</ul>
-	</div>
+  <div id="error_explanation">
+    <h4><%= pluralize(contact.errors.count, "error") %> prohibited this contact from being saved:</h4>
+    <ul>
+      <% contact.errors.each do |error| %>
+        <li><%= error.full_message %></li>
+      <% end %>
+    </ul>
+  </div>
 <% end %>
 <!--End Error Form For Notes -->
