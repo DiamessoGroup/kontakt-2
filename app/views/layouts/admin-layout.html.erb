@@ -25,11 +25,11 @@
   <button class="navbar-toggler position-absolute d-md-none collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#sidebarMenu" aria-controls="sidebarMenu" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
-  <!--  <input class="form-control form-control-dark w-100" type="text" placeholder="Search" aria-label="Search">-->
+  <!-- Search Bar -->
   <%= form_with url: contacts_search_path, method: :get, class: "d-flex form-control-dark w-100" do |form| %>
     <%= form.text_field :query, placeholder: "Search", class: "form-control form-control-dark w-100" %>
-    <%= form.submit class: "btn btn-dark" %>
   <% end %>
+  <!-- End Search Bar -->
   <ul class="navbar-nav px-3">
     <li class="nav-item text-nowrap">
       <%= link_to 'Sign Out', destroy_user_session_path, method: :delete, class: "nav-link" %>

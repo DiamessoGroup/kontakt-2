@@ -2,61 +2,7 @@
   Search
 <% end %>
 
-Search query <%= @query %>
-
-<div class="w3-row-padding w3-stretch">
-  <div class="w3-col l3">
-    <div class="w3-card w3-container w3-white w3-padding-16 w3-margin-bottom ">
-      <h4>Sort by</h4>
-
-      <input type="radio" name="sortContact" value="firstName"> <label for="firstName">First Name</label><br>
-
-      <input type="radio" name="sortContact" value="lastName"> <label for="lastName">Last Name</label><br>
-
-      <input type="radio" name="sortContact" value="title"> <label for="title">Title</label><br>
-
-      <input type="radio" name="sortContact" value="company"> <label for="company">Company</label><br>
-
-      <hr>
-      <h4>Filter by</h4>
-      <%= form_with url: user_contacts_path(@user, @contact), method: :get do |form| %>
-        <%= form.check_box :favorite %>
-        <%= form.label :favorite %>
-        <%= form.submit %>
-      <% end %>
-      <%= form_with url: user_contacts_path(@user, @contact), class: "w3-margin-top", method: :get do |form| %>
-        <%= form.submit "Reset", class: "w3-btn buttonColorTheme" %>
-      <% end %>
-    </div>
-
-  </div>
-  <div class="w3-col l9">
-    <div class="w3-card w3-white w3-responsive">
-      <table class="w3-table w3-striped w3-centered w3-bordered w3-card">
-        <tr class="w3-indigo w3-padding-32">
-          <th>First Name</th>
-          <th>Last Name</th>
-          <th>Title</th>
-          <th>Company</th>
-          <th>Favorite</th>
-          <th>Contact Profile</th>
-        </tr>
-        <% @contacts.each do |contact| %>
-          <tr>
-            <td class=""><%= contact.first_name %></td>
-            <td class=""><%= contact.last_name %></td>
-            <td class=""><%= contact.title %></td>
-            <td class=""><%= contact.company %></td>
-            <td class=""><%= is_favorite?(contact.favorite) %></td>
-            <td class=""><%= link_to "<i class='fa fa-id-card'></i>".html_safe, user_contact_path(@user, contact) %></td>
-          </tr>
-        <% end %>
-      </table>
-    </div>
-    <div class="w3-margin-top">
-      <%= will_paginate @contacts, renderer: WillPaginate::ActionView::Bootstrap4LinkRenderer, previous_label: '&laquo;', next_label: '&raquo;' %>
-    </div>
-  </div>
-
-
+<div class="w3-section">
+  <%= pluralize(@contacts.count, "query") %> found for <b><%= @query %></b>.
 </div>
+<%= render 'contacts/display_contacts' %>
