@@ -99,6 +99,15 @@ class ContactsControllerTest < ActionDispatch::IntegrationTest
     assert_equal('Joseph', @john_contact_jeff.first_name)
   end
 
+  test 'contact should not update when first_name is not present' do
+    sign_in @john
+    patch user_contact_url(@john, @john_contact_jeff), params: { contact: { first_name: ' ' } }
+    assert_template 'contacts/edit'
+    @john_contact_jeff.reload
+    # Ensures that expected == actual is true.
+    assert_equal('Jeff', @john_contact_jeff.first_name)
+  end
+
   test 'user should delete contact successfully when logged in' do
     sign_in @john
     assert_difference '@john.contacts.count', -1 do

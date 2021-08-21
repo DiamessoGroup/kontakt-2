@@ -37,12 +37,12 @@
         </tr>
         <% @contacts.each do |contact| %>
           <tr>
-            <td class=""><%= contact.first_name %></td>
-            <td class=""><%= contact.last_name %></td>
-            <td class=""><%= contact.title %></td>
-            <td class=""><%= contact.company %></td>
-            <td class=""><%= is_favorite?(contact.favorite) %></td>
-            <td class=""><%= link_to "<i class='fa fa-id-card'></i>".html_safe, user_contact_path(@user, contact) %></td>
+            <td><%= contact.first_name %></td>
+            <td><%= contact.last_name %></td>
+            <td><%= contact.title %></td>
+            <td><%= contact.company %></td>
+            <td><%= is_favorite?(contact.favorite) %></td>
+            <td><%= link_to "<i class='fa fa-id-card'></i>".html_safe, user_contact_path(@user, contact) %></td>
           </tr>
         <% end %>
       </table>

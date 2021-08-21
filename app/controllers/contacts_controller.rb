@@ -54,13 +54,9 @@ class ContactsController < ApplicationController
 
   def destroy
     @contact = @user.contacts.find(params[:id])
-    if @contact.destroy
-      flash[:success] = 'Your contact was successfully deleted.'
-      redirect_to user_contacts_url
-    else
-      flash[:error] = 'Something went wrong.'
-      redirect_to @contact
-    end
+    @contact.destroy
+    flash[:success] = 'Your contact was successfully deleted.'
+    redirect_to user_contacts_url
   end
 
   def search

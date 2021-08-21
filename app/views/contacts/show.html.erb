@@ -16,7 +16,7 @@
         <div class="w3-col l4 s4">
           <%= link_to edit_user_contact_path(@user, @contact) do %>
             <i class="fa fa-pencil w3-text-green" style="font-size:25px; cursor:pointer"></i><br><br>
-            <span>Edit Profile</span>
+            <span>Edit Contact</span>
           <% end %>
         </div>
         <div class="w3-col l4 s4">
@@ -26,7 +26,7 @@
         <div class="w3-col l4 s4">
           <%= link_to user_contact_path(@user, @contact), method: :delete, data: { confirm: "Are you sure?" } do %>
             <i class="fa fa-trash w3-text-orange" style="font-size:25px; cursor:pointer;"></i><br><br>
-            <span>Delete Profile</span>
+            <span>Delete Contact</span>
           <% end %>
         </div>
       </div>
