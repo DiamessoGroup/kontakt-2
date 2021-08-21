@@ -1,35 +1,37 @@
-require "test_helper"
+# frozen_string_literal: true
+
+require 'test_helper'
 
 class ProfileTest < ActiveSupport::TestCase
   def setup
     @mike = users(:mike)
   end
 
-  test "profile should not be valid if first_name is empty" do
-    @profile = @mike.build_profile(first_name: " ")
+  test 'profile should not be valid if first_name is empty' do
+    @profile = @mike.build_profile(first_name: ' ')
     assert_not @profile.valid?
   end
 
-  test "profile should not be valid if last_name is empty" do
-    @profile = @mike.build_profile(last_name: " ")
+  test 'profile should not be valid if last_name is empty' do
+    @profile = @mike.build_profile(last_name: ' ')
     assert_not @profile.valid?
   end
 
-  test "profile should be valid when last_name and first_name present" do
-    @profile = @mike.build_profile(first_name: "Mike", last_name: "Solomon")
+  test 'profile should be valid when last_name and first_name present' do
+    @profile = @mike.build_profile(first_name: 'Mike', last_name: 'Solomon')
     assert @profile.valid?
   end
 
-  test "profile should not be created when last_name and first_name not present" do
-    @profile = @mike.build_profile(first_name: "", last_name: "")
-    assert_no_difference "Profile.count" do
+  test 'profile should not be created when last_name and first_name not present' do
+    @profile = @mike.build_profile(first_name: '', last_name: '')
+    assert_no_difference 'Profile.count' do
       @profile.save
     end
   end
 
-  test "profile should be created when last_name and first_name present" do
-    @profile = @mike.build_profile(first_name: "Mike", last_name: "Solomon")
-    assert_difference "Profile.count" do
+  test 'profile should be created when last_name and first_name present' do
+    @profile = @mike.build_profile(first_name: 'Mike', last_name: 'Solomon')
+    assert_difference 'Profile.count' do
       @profile.save
     end
   end

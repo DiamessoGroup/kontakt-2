@@ -64,7 +64,7 @@ class ContactsControllerTest < ActionDispatch::IntegrationTest
                                 address: '2159 Columbia Mine Road, White Sulphur Spring, WV 24986',
                                 title: 'Career counselor', company: 'Dream Home Improvements', favorite: false } }
     end
-    assert_template :new
+    assert_template 'contacts/new'
   end
 
   test 'user is logged in and should create new contact' do
@@ -112,5 +112,17 @@ class ContactsControllerTest < ActionDispatch::IntegrationTest
       delete user_contact_url(@john, @john_contact_jeff)
     end
     assert_redirected_to new_user_session_path
+  end
+
+  test 'user not logged in should not be able to search' do
+    get contacts_search_url
+    assert_response :redirect
+  end
+
+  test 'search bar should return contacts with query' do
+    sign_in @john
+    get contacts_search_url
+    assert_response :success
+    assert_template 'contacts/search'
   end
 end
