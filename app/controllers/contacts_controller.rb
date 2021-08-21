@@ -54,14 +54,19 @@ class ContactsController < ApplicationController
 
   def destroy
     @contact = @user.contacts.find(params[:id])
-    @contact.destroy
-    flash[:success] = 'Your contact was successfully deleted.'
-    redirect_to user_contacts_url
+    if @contact.destroy
+      flash[:success] = 'Your contact was successfully deleted.'
+      redirect_to user_contacts_url
+    else
+      flash[:error] = 'Something went wrong.'
+      redirect_to @contact
+    end
   end
 
   def search
     @query = params[:query]
-    @contacts = @user.contacts.where('first_name like ? or last_name like ?', "%#{@query}%", "%#{@query}%").paginate(page: params[:page])
+    @contacts = @user.contacts.where('first_name like ? or last_name like ?', "%#{@query}%", "%#{@query}%")
+                     .paginate(page: params[:page])
   end
 
   def contact_params

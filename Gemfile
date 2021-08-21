@@ -30,6 +30,9 @@ gem 'will_paginate'
 # Will Paginate Bootstrap
 gem 'bootstrap-will_paginate'
 
+# gem controller testing
+gem 'rails-controller-testing'
+
 # Devise
 gem 'devise'
 

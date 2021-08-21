@@ -1,21 +1,34 @@
 # Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
-one:
-  first_name: MyString
-  last_name: MyString
-  email: MyString
-  phone: MyString
-  title: MyString
-  company: MyString
+jeff:
+  first_name: Jeff
+  last_name: Chandler
+  email: JeffLChandler@dayrep.com
+  phone: 250-743-5380
+  address: 3095 Conference Center Way, Mifflinburg, PA 17844
+  title: Law Clerk
+  company: Weingarten
   favorite: false
   user: john
 
-two:
-  first_name: MyString
-  last_name: MyString
-  email: MyString
-  phone: MyString
-  title: MyString
-  company: MyString
-  favorite: false
+joann:
+  first_name: Joann
+  last_name: Morgan
+  email: JoannDMorgan@dayrep.com
+  phone: 450-619-6936
+  address: 3409 Hide A Way Road, San Jose, CA 95136
+  title: Multimedia artist
+  company: Champion Auto
+  favorite: true
+  user: john
+
+velma:
+  first_name: Velma
+  last_name: Blanton
+  email: VelmaJBlanton@jourrapide.com
+  phone: 418-364-9150
+  address: 4749 New Creek Road, Fort Wayne, IN 46802
+  title: Office administrator
+  company: Las Vegas Yard Management
+  favorite: true
   user: john
