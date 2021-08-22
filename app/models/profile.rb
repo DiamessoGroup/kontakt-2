@@ -2,6 +2,8 @@ class Profile < ApplicationRecord
   # Association
   belongs_to :user
 
+  has_one_attached :avatar
+
   # Callbacks
   # Strip First Name and Last Name of spaces
   before_save do
@@ -21,4 +23,9 @@ class Profile < ApplicationRecord
   def full_name
     "#{first_name} #{last_name}"
   end
+
+  def avatar_attached?
+    avatar.attached? ? avatar : 'avatar-3.png'
+  end
+
 end

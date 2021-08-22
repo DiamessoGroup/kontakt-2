@@ -12,7 +12,9 @@
         <h3 class="w3-center">Create Your Profile</h3>
       <% end %>
       <div class="w3-center w3-container">
-        <img src="" alt="Avatar" class="w3-card w3-padding mainAvatarSize">
+        <% if @user.profile %>
+          <%= image_tag(@user.profile.avatar_attached?, class: "w3-card w3-padding mainAvatarSize") %>
+        <% end %>
       </div>
       <hr>
       <div class="w3-center w3-container w3-row">
@@ -60,10 +62,10 @@
       <%= form_with model: [@user, @user.notes.build] do |form| %>
         <%= render "notes/error_note", note: @note %>
         <p>
-          <%= form.text_area :content, class: "w3-margin-bottom w3-padding noteTabText", cols: "80", rows: "5" %>
+          <%= form.text_area :content, class: "w3 - margin - bottom w3 - padding noteTabText ", cols: "80", rows: "5" %>
         </p>
         <p>
-          <%= form.submit "Add Note", class: "w3-btn buttonColorTheme" %>
+          <%= form.submit "Add Note ", class: "w3 - btn buttonColorTheme " %>
         </p>
       <% end %>
     </div>
@@ -77,7 +79,7 @@
         <% @user.notes.each do |note| %>
           <% unless note.id.nil? %>
             <div class="w3-container w3-card w3-margin-bottom panelCardNote alert alert-dismissible fade show" role="alert">
-              <%= link_to user_note_path(note.user, note), method: :delete, data: { confirm: "You are about to delete this note. Are you sure?" } do %>
+              <%= link_to user_note_path(note.user, note), method: :delete, data: { confirm: "You are about to delete this note.Are you sure? " } do %>
                 <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close" id="delete_note_button"></button>
               <% end %>
               <h5 class="w3-opacity"><b>Note.</b>
