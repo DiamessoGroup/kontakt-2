@@ -8,7 +8,7 @@ class AppsSystemTest < ApplicationSystemTestCase
 
   test 'visiting the root' do
     visit root_url
-    assert_selector 'h1', text: 'Vertically centered hero sign-up form'
+    assert_selector 'h1', text: 'Kontakt'
   end
 
   test 'has home link' do

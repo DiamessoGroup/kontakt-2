@@ -1,54 +1,54 @@
 <% content_for :asset_css do %>
-	<%= stylesheet_link_tag "signin" %>
+  <%= stylesheet_link_tag "signin" %>
 <% end %>
 
 <div class="container pt-5">
-	<main class="">
+  <main class="">
 
 
-		<%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
-			<%= render "devise/shared/error_messages", resource: resource %>
+    <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
+      <%= render "devise/shared/error_messages", resource: resource %>
 
-			<h2 class="h3 mb-3 fw-normal">Edit <%= resource_name.to_s.humanize %></h2>
+      <h2 class="h3 mb-3 fw-normal">Edit <%= resource_name.to_s.humanize %></h2>
 
-			<div class="field form-floating mb-3">
-				<%= f.email_field :email, autofocus: true, autocomplete: "email", class: "form-control", placeholder: "name@email.com" %>
-				<%= f.label :email %>
-			</div>
+      <div class="field form-floating mb-3">
+        <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "form-control", placeholder: "name@email.com" %>
+        <%= f.label :email %>
+      </div>
 
-			<% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
-				<div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
-			<% end %>
+      <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
+        <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
+      <% end %>
 
-			<div class="field form-floating mb-3">
+      <div class="field form-floating mb-3">
 
-				<%= f.password_field :password, autocomplete: "new-password", class: "form-control", placeholder: "password" %>
-				<%= f.label :password %><i>(leave blank if you don't want to change it)</i>
-				<% if @minimum_password_length %>
-					<br/>
-					<em><%= @minimum_password_length %> characters minimum</em>
-				<% end %>
-			</div>
+        <%= f.password_field :password, autocomplete: "new-password", class: "form-control", placeholder: "password" %>
+        <%= f.label :password %><i>(leave blank if you don't want to change it)</i>
+        <% if @minimum_password_length %>
+          <br/>
+          <em><%= @minimum_password_length %> characters minimum</em>
+        <% end %>
+      </div>
 
-			<div class="field form-floating mb-3">
-				<%= f.password_field :password_confirmation, autocomplete: "new-password", class: "form-control", placeholder: "newpassword" %>
-				<%= f.label :password_confirmation %>
-			</div>
+      <div class="field form-floating mb-3">
+        <%= f.password_field :password_confirmation, autocomplete: "new-password", class: "form-control", placeholder: "newpassword" %>
+        <%= f.label :password_confirmation %>
+      </div>
 
-			<div class="field form-floating mb-3">
-				<%= f.password_field :current_password, autocomplete: "current-password", class: "form-control", placeholder: "currentpassword" %>
-				<%= f.label :current_password %> <i>(we need your current password to confirm your changes)</i>
-			</div>
+      <div class="field form-floating mb-3">
+        <%= f.password_field :current_password, autocomplete: "current-password", class: "form-control", placeholder: "currentpassword" %>
+        <%= f.label :current_password %> <i>(we need your current password to confirm your changes)</i>
+      </div>
 
-			<div class="actions mb-3">
-				<%= f.submit "Update", class: "w-100 btn btn-lg btn-primary" %>
-			</div>
-		<% end %>
+      <div class="actions mb-3">
+        <%= f.submit "Update", class: "w-100 btn btn-lg btn-primary" %>
+      </div>
+    <% end %>
 
-		<h3 class="h2 mb-3 fw-normal">Cancel my account</h3>
+    <h3 class="h2 mb-3 fw-normal">Cancel my account</h3>
 
-		<p>Unhappy? <%= button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete, class: "w-100 btn btn-lg btn-danger mb-3" %></p>
+    <p>Unhappy? <%= button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete, class: "w-100 btn btn-lg btn-danger mb-3" %></p>
 
-		<%= link_to "Back to dashboard", admin_profile_path, class: "pb-5" %>
-	</main>
+    <%= link_to "Back to dashboard", admin_profile_path, class: "pb-5" %>
+  </main>
 </div>

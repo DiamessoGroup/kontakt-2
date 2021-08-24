@@ -8,7 +8,7 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-User.create!(email: 'elonmusk@tesla.com', password: 'modelx', password_confirmation: 'modelx')
+User.create!(email: 'elonmusk@tesla.com', password: 'elonmusk', password_confirmation: 'elonmusk')
 
 Profile.create!(first_name: 'Elon', last_name: 'Musk', title: 'CEO',
                 company: 'Tesla', phone: '513-464-2003', address: '2039 Goldie Lane', city: 'Los Angeles', state: 'CA', zip_code: '45402', user_id: '1')

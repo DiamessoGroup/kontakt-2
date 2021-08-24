@@ -1,17 +1,17 @@
 <div class="w3-row-padding w3-stretch">
   <div class="w3-col l3">
     <div class="w3-card w3-container w3-white w3-padding-16 w3-margin-bottom ">
-      <h4>Sort by</h4>
+      <!--      <h4>Sort by</h4>-->
 
-      <input type="radio" name="sortContact" value="firstName"> <label for="firstName">First Name</label><br>
+      <!--      <input type="radio" name="sortContact" value="firstName"> <label for="firstName">First Name</label><br>-->
 
-      <input type="radio" name="sortContact" value="lastName"> <label for="lastName">Last Name</label><br>
+      <!--      <input type="radio" name="sortContact" value="lastName"> <label for="lastName">Last Name</label><br>-->
 
-      <input type="radio" name="sortContact" value="title"> <label for="title">Title</label><br>
+      <!--      <input type="radio" name="sortContact" value="title"> <label for="title">Title</label><br>-->
 
-      <input type="radio" name="sortContact" value="company"> <label for="company">Company</label><br>
+      <!--      <input type="radio" name="sortContact" value="company"> <label for="company">Company</label><br>-->
 
-      <hr>
+      <!--      <hr>-->
       <h4>Filter by</h4>
       <%= form_with url: user_contacts_path(@user, @contact), method: :get do |form| %>
         <%= form.check_box :favorite %>

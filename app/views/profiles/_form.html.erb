@@ -44,6 +44,10 @@
     <%= form.label :zip_code, class: "form-label" %>
     <%= form.text_field :zip_code, class: 'form-control' %>
   </div>
+  <div class="col-md-3">
+    <%= form.label :avatar %>
+    <%= form.file_field :avatar %>
+  </div>
   <p>
     <%= form.submit class: "w-100 btn btn-primary btn-lg" %>
   </p>

@@ -9,9 +9,8 @@
 
       <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0 ">
         <li><%= link_to 'Home', root_path, class: "nav-link px-2 text-white" %></li>
-        <li><%= link_to 'About', app_about_path, class: "nav-link px-2 text-white" %></li>
         <% if user_signed_in? %>
-          <%= link_to 'Dashboard', admin_profile_path, class: "nav-link px-2 text-white" %>
+          <%= link_to 'To Dashboard', admin_profile_path, class: "nav-link px-2 text-white" %>
         <% end %>
       </ul>
 

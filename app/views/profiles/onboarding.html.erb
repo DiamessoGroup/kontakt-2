@@ -1,0 +1,66 @@
+<div class="w3-white w3-padding-16 w3-container w3-card-4 w3-section" style="margin-left:16px; margin-right: 16px;">
+  <%= form_with(model: [@user, @profile], url: admin_onboarding_path) do |form| %>
+
+    <div class="w3-text-indigo w3-padding-4">
+      <h2>Create Your Profile</h2>
+    </div>
+
+    <%= render 'error_profile' %>
+
+    <div class="w3-margin-top">
+      <div class="w3-row">
+        <div class="w3-col l6 w3-margin-bottom w3-padding-8">
+          <%= form.label :first_name, class: "form-label" %>
+          <span class="w3-tiny"> *required</span>
+          <%= form.text_field :first_name, class: 'w3-input contactFormLength' %>
+        </div>
+        <div class="w3-col l6 w3-margin-bottom w3-padding-8">
+          <%= form.label :last_name, class: "form-label" %><span class="w3-tiny"> *required</span>
+          <%= form.text_field :last_name, class: 'w3-input contactFormLength' %>
+        </div>
+      </div>
+      <div class="w3-row">
+        <div class="w3-margin-bottom w3-padding-8 w3-col l6">
+          <%= form.label :title, class: "form-label" %>
+          <%= form.text_field :title, class: 'w3-input contactFormLength' %>
+        </div>
+        <div class="w3-margin-bottom w3-padding-8 w3-col l6">
+          <%= form.label :company, class: "form-label" %>
+          <%= form.text_field :company, class: 'w3-input contactFormLength' %>
+        </div>
+      </div>
+      <div>
+        <div class="w3-margin-bottom w3-padding-8 w3-col l12">
+          <%= form.label :phone, class: "form-label" %>
+          <%= form.text_field :phone, class: 'w3-input contactFormLength' %>
+        </div>
+      </div>
+      <div class="w3-margin-bottom w3-padding-8">
+        <%= form.label :address, class: "form-label" %>
+        <%= form.text_field :address, class: 'w3-input contactFormLength' %>
+      </div>
+      <div class="w3-row">
+        <div class="w3-margin-bottom w3-padding-8 w3-col l4">
+          <%= form.label :city, class: "form-label" %>
+          <%= form.text_field :city, class: 'w3-input contactFormLength' %>
+        </div>
+        <div class="w3-margin-bottom w3-padding-8 w3-col l4">
+          <%= form.label :state, class: "form-label" %>
+          <%= form.text_field :state, class: 'w3-input contactFormLength' %>
+        </div>
+        <div class="w3-margin-bottom w3-padding-8 w3-col l4">
+          <%= form.label :zip_code, class: "form-label" %>
+          <%= form.text_field :zip_code, class: 'w3-input contactFormLength' %>
+        </div>
+      </div>
+      <div class="w3-margin-bottom w3-padding-8">
+        <%= form.label :avatar, "Profile Picture" %>
+        <%= form.file_field :avatar, class: 'w3-input contactFormLength' %>
+      </div>
+    </div>
+    <p class="w3-text-red"></p>
+    <div class="w3-margin-bottom w3-padding-16 contactFormLength">
+      <%= form.submit class: "w3-btn buttonColorTheme w3-left" %>
+    </div>
+  <% end %>
+</div>
