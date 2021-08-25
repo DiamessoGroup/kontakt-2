@@ -23,7 +23,7 @@ I had previously designed this application as a single page application with ang
 like built on Ruby on Rails.
 
 The angular.js version made use of routing and was fast to navigate. However, changes were not saved permanently because
-there was no database
+there was no database.
 
 **Angular.js Version Screenflow**
 
@@ -54,6 +54,7 @@ there was no database
 - Bootstrap
 - W3.CSS
 - jQuery
+- SCSS
 
 ## Setup
 
@@ -61,7 +62,7 @@ After downloading the Git repository, follow the steps below to setup the applic
 
 1. Run `rails bundle`
 2. Run `npm install`
-3. See further instructions below for the database
+3. Before proceeding, see further instructions below for the database
 4. To create the database, run `rails db:create`
 5. Migrate the migration files with `rails db:migrate`
 6. Seed the database with some data with `rails db:seed`
@@ -83,6 +84,8 @@ system and installing the proper gems in the gemfile.
 To run controller tests, model tests and integration tests, you can run `rails test`
 
 To run system tests, run `rails test:system`
+
+![kontakt tests](./app/assets/images/kontakt-tests.gif)
 
 ## Key Features
 
