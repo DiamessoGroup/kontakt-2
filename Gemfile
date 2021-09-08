@@ -37,7 +37,7 @@ gem 'rails-controller-testing'
 gem 'devise'
 
 # Figaro
-gem "figaro"
+gem 'figaro'
 # Use Redis adapter to run Action Cable in production
 # gem 'redis', '~> 4.0'
 # Use Active Model has_secure_password
@@ -45,6 +45,9 @@ gem "figaro"
 
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
+
+# AWS Active Storage
+gem 'aws-sdk-s3', require: false
 
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.4.4', require: false
